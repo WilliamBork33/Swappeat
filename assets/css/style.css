@@ -1,4 +1,12 @@
 
+/*font link*/
+@font-face {
+    font-family: gooper;
+    src: url("../fonts/gooper/Gooper0.1-Regular.otf") format("opentype");
+}
+
+
+
 
 /* css of footer*/
 body {
@@ -10,3 +18,9 @@ body {
   main {
     flex: 1 0 auto;
   }
+
+  h1 {
+      font-family: gooper;
+  }
+
+  
