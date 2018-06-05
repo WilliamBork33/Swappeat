@@ -20,22 +20,28 @@
 <body>
     <header>
         <!--navigation bar-->
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li>
-                        <a href="./quick-start.html" id="quick_start_btn">Quick start</a>
-                    </li>
-                    <li>
-                        <a href="badges.html" id="create_acount">Create account</a>
-                    </li>
-                    <li>
-                        <a href="collapsible.html" id="login_btn">Log in</a>
-                    </li>
-                </ul>
+        <nav class="navbar navbar-expand-lg navbar-light bg-light">
+            <a class="navbar-brand" href="index.html">
+                <img src="assets/images/Logo Swappeat.png" width="200px">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+              <span class="navbar-toggler-icon"></span>
+            </button>
+          
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav mr-auto">
+                <li class="nav-item active">
+                  <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" href="#">Create Account</a>
+                </li>
+                <li class="nav-item">
+                        <button type="button" class="btn btn-info">Quick Start!</button>
+                    <a class="nav-link" href="#"></a>
+                  </li>
             </div>
-        </nav>
+          </nav>
     </header>
 
     <!-- Responsive Content Container -->
@@ -50,7 +56,7 @@
                         <h5 class="card-title">Change Applied Filters</h5>
                         <p class="card-text"></p>
 
-                        <a href="#" class="btn btn-primary">Submit</a>
+                        <button type="button" class="btn btn-info">Submit!</button>
                     </div>
                 </div>
             </div>
@@ -77,6 +83,7 @@
                         <!-- Rows for user recent recipies -->
                         <div class="row" id="user_recents">
                             <p>Share</p>
+                
                             <div>
 
                                 <!-- Social links -->
@@ -94,28 +101,16 @@
                         <br>
 
 
-                        <a href="#" class="btn btn-primary">Submit</a>
+                        <button type="button" class="btn btn-info">Submit!</button>
                     </div>
                 </div>
+
                 <!-- Rows for dashboard title -->
 
             </div>
-
-            <footer class="page-footer">
-                <div class="container">
-                    <div class="row">
-                        <div class="col l6 s12">
-                            <h5 class="white-text">Footer Content</h5>
-                        </div>
-                    </div>
-                </div>
-                <div class="footer-copyright">
-                    <div class="container">
-                        © 2018 swappeat!
-                        <a class="grey-text text-lighten-4 right" href="#!">Follow us!</a>
-                    </div>
-                </div>
-            </footer>
+            <nav class="navbar fixed-bottom navbar-light bg-light">
+                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
+              </nav>
 
 </body>
 <!-- JAVASCRIPT, JQUERY-->
