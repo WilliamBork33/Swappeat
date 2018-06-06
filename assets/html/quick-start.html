@@ -7,62 +7,50 @@
     <title>Swappeat</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <!-- STYLE-->
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css" />
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./../css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./../css/style.css" />
     <!-- Compiled and minified materialized CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
 </head>
 
 <body>
-    <header>
-        <!--navigation bar-->
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li>
-                        <a href="sass.html">Quick start</a>
-                    </li>
-                    <li>
-                        <a href="badges.html">Create account</a>
-                    </li>
-                    <li>
-                        <a href="collapsible.html">Log in</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div class="container" class="wrap_container">
-        <div class="row">
-            <h1>Filter</h1>
-            <div class="row">
-                <div class="col s12 m6 l3" id="show_filterbtn"></div>
-            </div>
-
-            <!---    STARTS FILTER RECIPE PAGE         -->
-            <div class="row" id="other_search_filter">
-            <!-- Customizable input  -->
-                <div class="chips">
-                    <input class="custom-class">
-                </div>
-            </div>
-            
-            <div class="footer-copyright">
-                <div class="container">
-                    © 2018 swappeat!
-                    <a class="grey-text text-lighten-4 right" href="#!">Follow us!</a>
-                </div>
-            </div>
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#" class="brand-logo">Logo</a>
+            <ul id="nav-mobile" class="right hide-on-med-and-down">
+                <li>
+                    <a href="sass.html">Quick start</a>
+                </li>
+                <li>
+                    <a href="badges.html">Create account</a>
+                </li>
+                <li>
+                    <a href="collapsible.html">Log in</a>
+                </li>
+            </ul>
         </div>
-        </footer>
-
+    </nav>
+    <div class="container wrap_container">
+        <div class="row">
+            <div class="col l12 m12 s12">
+                <h1>Filter</h1>
+                <div id="show_filterbtn"></div>
+            </div>
+            <div class="col l12 m12 s12" id="other_search_filter">
+                <div class="chips">
+                    <input class="custom-class" id="otherChip">
+                </div>
+                <button type="button" class="btn btn-info" id="searchBtn">Search</button>
+            </div>
+            <div class="col l12 m12 s12" id ="recipesCont"></div>
+        </div>
+    </div>
 </body>
 <!-- JAVASCRIPT, JQUERY-->
 <!-- Compiled and minified JavaScript -->
 <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script src="./assets/javascript/script.js"></script>
+<script src="./../javascript/script.js"></script>
 
 <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 

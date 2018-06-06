@@ -3,7 +3,7 @@
 var userName = "";
 var userPassword = "";
 var filterArray = ["Vegetables", "Grain (cereal) foods", " Red Meats", "Fish", "Chicken", "Eggs", "Tofu", "Seeds", "Legumes/Beans", "Dairies"];
-var otherFilterChoice = "";
+var userChoices = [];
 
 buttonsRender();
 //--------------- RENDER filterArray BTNS------------------ //
@@ -11,7 +11,7 @@ function buttonsRender() {
 
     for (var i = 0; i < filterArray.length; i++) {
         var filterBtn = $("<button>");
-        filterBtn.addClass("#filter_render");
+        filterBtn.addClass("filter_render chip");
         // Adding a data-attribute
         filterBtn.attr("data-name", filterArray[i]);
         // Providing the initial button text
@@ -20,50 +20,38 @@ function buttonsRender() {
         $("#show_filterbtn").append(filterBtn);
     }
 }
-//---------------- STORE VALUE OF BUTTONS --------------->
-$(filterArray).click(function() {
-    console.log ("u clicked me");
-  });
-//--------------- new search btn------------------ //
-document.addEventListener('DOMContentLoaded', function () {
-    var elems = document.querySelectorAll('.chips');
-    var instances = M.Chips.init(elems, options);
-});
-var chip = {
-    tag: 'chip content',
-    image: '', //optional
-};
-$('.chips').chips();
-$('.chips-initial').chips({
-    data: [{
-        tag: 'Apple',
-    }, {
-        tag: 'Microsoft',
-    }, {
-        tag: 'Google',
-    }],
-});
-$('.chips-placeholder').chips({
-    placeholder: 'Enter a tag',
-    secondaryPlaceholder: '+Tag',
-});
-$('.chips-autocomplete').chips({
-    autocompleteOptions: {
-        data: {
-            'Apple': null,
-            'Microsoft': null,
-            'Google': null
-        },
-        limit: Infinity,
-        minLength: 1
+//--------------onclick event for filters and text input -----------//
+$(".filter_render").on("click", function (event) {
+    event.preventDefault();
+
+    if (userChoices.indexOf(event.target.innerText) === -1) {
+        userChoices.push(event.target.innerText);
     }
+    
+
+
 });
+//--------------chips -----------//
+$('.chips').chips();
+//---------------- STORE VALUE OF BUTTONS --------------->
+
 
 //--------------- API CALL------------------ //  
-$(document).on("click", "button", function (event) {
-    var filterChoices = $(this).attr("data-name");
-    var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?=fillIngredients=false" + filterChoices + "limitLicense=false&number=5&ranking=1";
+$(document).on("click", "#searchBtn", function (event) { 
+    var filterChoices = "";
+    for (var i = 0; i < userChoices.length; i++){
+         filterChoices += userChoices[i] + ",";
+    }
 
+    var chips = $("div.chip");
+    for (var i=0; i < chips.length; i++) {
+        filterChoices += chips[i].firstChild.data + ",";
+    }
+
+    var baseURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients";
+    var queryURL = baseURL + "?fillIngredients=false&ingredients=" + filterChoices + "&limitLicense=false&number=5&ranking=1";
+
+ 
     $.ajax({
         type: "GET",
         url: queryURL,
@@ -72,22 +60,16 @@ $(document).on("click", "button", function (event) {
         }
     }).then(function (response) {
         console.log(response);
-        var results = response.data;
+        var results = response;
         for (var i = 0; i < results.length; i++) {
-            var celebrityDiv = $("<div class = 'recipes' >").addClass("col-sm-4");
-            var t = $("<h5>");
-            p.text(results[i].title);
+            var recipeDiv = $("<div>").addClass("recipes");
             var recepieImage = $("<img>");
             recepieImage.addClass("recipe_image");
-            recepieImage.attr({
-                "src": results[i].images.url,
-                "image": results[i].images.url,
-                "title": results[i].images.fixed_height.url,
+            recepieImage.attr("src", results[i].image);
+            recipeDiv.append(recepieImage);
+           //recipeDiv.text(results[i].title);
 
-            });
-            celebrityDiv.prepend(p, t, celebrityImage);
-
-            $("#giphys_view").prepend(celebrityDiv);
+            $("#recipesCont").append(recipeDiv);
         }
 
     });
