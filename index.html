@@ -11,64 +11,63 @@
     <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <!-- Compiled and minified materialized CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
-</head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        </head>
 
-<body>
-    <header>
-        <!--navigation bar-->
-        <nav>
-            <div class="nav-wrapper">
-                <a href="#" class="brand-logo">Logo</a>
-                <ul id="nav-mobile" class="right hide-on-med-and-down">
-                    <li>
-                        <a href="./quick-start.html" id="quick_start_btn">Quick start</a>
-                    </li>
-                    <li>
-                        <a href="badges.html" id="create_acount">Create account</a>
-                    </li>
-                    <li>
-                        <a href="collapsible.html" id="login_btn">Log in</a>
-                    </li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <div class="container" class="wrap_container">
-        <div class="row" id="description" class="col-12">
-            <h1>Swappeat</h1>
-            <h2>Eating smart was never that easy</h2>
-            <p> Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe, quaerat. Rem, doloribus. Deserunt repellat error
-                molestiae culpa autem ea, quos architecto saepe at id sit officia natus corporis incidunt consequatur.
-            </p>
-            <a class="waves-effect waves-light btn" id="quick_start">Get started</a>
-        </div>
-        <div class="row" id="site_info">
-        </div>
-        <footer class="page-footer">
-            <div class="container">
-                <div class="row">
-                    <div class="col l6 s12">
-                        <h5 class="white-text">Footer Content</h5>
-                        <p class="grey-text text-lighten-4">You can use rows and columns here to organize your footer content.</p>
-                    </div>
+    <body>
+           
+        <header>
+            <!--navigation bar-->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="#">
+                    <img src="assets/images/Logo Swappeat.png" width="200px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="#">Create Account</a>
+                        </li>
+                        <li class="nav-item">
+                            <button type="button" class="btn btn-info">Quick Start!</button>
+                            <a class="nav-link" href="#"></a>
+                        </li>
                 </div>
+            </nav>
+        </header>
+        <div class="container" class="wrap_container">
+            <div class="row" id="description" class="col-12">
+                <h1 id="logo"> <img src="assets/images/Logo Swappeat2.png" width="300px"> </h1>
+                <p> Imagine if you are alergic to almonds or dairy just makes you sick. 
+                    Swappeat helps you find recipes that exclude ingredients you don't need in you diet. 
+                    Eating right and smart was never more delicious.
+                </p>
+                <button type="button" class="btn btn-info" id="quick_start">Quick Start!</button>
             </div>
-            <div class="footer-copyright">
-                <div class="container">
-                    © 2018 swappeat!
-                    <a class="grey-text text-lighten-4 right" href="#!">Follow us!</a>
-                </div>
+            <div class="row" id="site_info">
             </div>
-        </footer>
-    </div>
+            <nav class="navbar fixed-bottom navbar-light bg-light">
+                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
+            </nav>
+        </div>
 
 
-</body>
-<!-- JAVASCRIPT, JQUERY-->
-<!-- Compiled and minified JavaScript -->
-<script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-<script src="./assets/javascript/script.js"></script>
-<script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    </body>
+    <!-- JAVASCRIPT, JQUERY-->
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="./assets/javascript/script.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 
 </html>
