@@ -21,7 +21,9 @@ function buttonsRender() {
     }
 }
 //---------------- STORE VALUE OF BUTTONS --------------->
-
+$(filterArray).click(function() {
+    console.log ("u clicked me");
+  });
 //--------------- new search btn------------------ //
 document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.chips');
