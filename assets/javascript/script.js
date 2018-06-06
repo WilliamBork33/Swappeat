@@ -1,14 +1,12 @@
 
-// GLOBAL VARIABLES INDEX 
+//--------------- GLOBAL VARIABLES------------------ //
 var userName = "";
 var userPassword = "";
-var filterArray = ["diary", "chocolate", "almonds"];
-var filterChoices = [];
+var filterArray = ["Vegetables", "Grain (cereal) foods", " Red Meats", "Fish", "Chicken", "Eggs", "Tofu", "Seeds", "Legumes/Beans", "Dairies"];
 var otherFilterChoice = "";
 
-//#quick_start button on-click event  takes you to create user 
 buttonsRender();
-// rendering buttons
+//--------------- RENDER filterArray BTNS------------------ //
 function buttonsRender() {
 
     for (var i = 0; i < filterArray.length; i++) {
@@ -22,33 +20,17 @@ function buttonsRender() {
         $("#show_filterbtn").append(filterBtn);
     }
 }
+//---------------- STORE VALUE OF BUTTONS --------------->
 
-/*
-$("#search-more").on("click", function (event) {
-    event.preventDefault();
-    // This line grabs the input from the textbox
-    var otherFilterChoice = $("#search_giphys").val().trim();
-
-    if (otherFilterChoice != "") {
-
-        celebritiesArray.push(newCelebrity);
-        console.log(celebritiesArray);
-        buttonsRender();
-    }
-});
-
-*/
-
-/// TRYOUT BTNS //
-document.addEventListener('DOMContentLoaded', function() {
+//--------------- new search btn------------------ //
+document.addEventListener('DOMContentLoaded', function () {
     var elems = document.querySelectorAll('.chips');
     var instances = M.Chips.init(elems, options);
-  });
+});
 var chip = {
     tag: 'chip content',
     image: '', //optional
-  };
-
+};
 $('.chips').chips();
 $('.chips-initial').chips({
     data: [{
@@ -75,13 +57,38 @@ $('.chips-autocomplete').chips({
     }
 });
 
+//--------------- API CALL------------------ //  
+$(document).on("click", "button", function (event) {
+    var filterChoices = $(this).attr("data-name");
+    var queryURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients?=fillIngredients=false" + filterChoices + "limitLicense=false&number=5&ranking=1";
 
-//#create_acount pop up window to fill in information + submit button jquery 
+    $.ajax({
+        type: "GET",
+        url: queryURL,
+        headers: {
+            "X-Mashape-Key": "DZZdpVKLHSmshgD67ScIQcz9BQY3p1mgljSjsnkJyKyQ2YvcV7"
+        }
+    }).then(function (response) {
+        console.log(response);
+        var results = response.data;
+        for (var i = 0; i < results.length; i++) {
+            var celebrityDiv = $("<div class = 'recipes' >").addClass("col-sm-4");
+            var t = $("<h5>");
+            p.text(results[i].title);
+            var recepieImage = $("<img>");
+            recepieImage.addClass("recipe_image");
+            recepieImage.attr({
+                "src": results[i].images.url,
+                "image": results[i].images.url,
+                "title": results[i].images.fixed_height.url,
 
-//#login_btn function, recieves users password and user name input and takes you to the dashboard
+            });
+            celebrityDiv.prepend(p, t, celebrityImage);
 
-// jquery creates buttons for variable filterArray
+            $("#giphys_view").prepend(celebrityDiv);
+        }
 
-// Jquery creates buttons for others
+    });
 
-//jquery stores user choices in to filterChoices
+
+});
