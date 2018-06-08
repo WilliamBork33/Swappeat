@@ -1,18 +1,19 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Swappeat</title>
-
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Linking style sheets -->
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css"/>
-    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css"/>
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
     <!-- Compiled and minified materialized CSS -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
     <title>DASHBOARD</title>
 </head>
 
@@ -26,25 +27,28 @@
 
             <!-- Navigation bar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
-                <a class="navbar-brand" href="index.html">
-                    <img src="assets/images/Logo Swappeat.png" width="200px">
+                <a class="navbar-brand" href="../../index.html">
+                    <img src="../images/Logo Swappeat.png" width="200px">
                 </a>
-                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-            
+
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item active">
-                        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="#">Create Account</a>
-                    </li>
-                    <li class="nav-item">
-                        <button type="button" class="btn btn-info">Quick Start!</button>
-                        <a class="nav-link" href="#"></a>
-                    </li>
+
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="/index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                             <a class="btn btn-primary" href="quick-start.html" role="button">Quickstart</a>
+                        </li>
                 </div>
 
             </nav>
@@ -55,7 +59,7 @@
 
             <!-- Column to hold the filters card -->
             <div class="col-4">
-                
+
                 <!-- Card to display filters -->
                 <div class="card">
                     <div class="card-header">
@@ -70,100 +74,118 @@
                 </div>
             </div>
 
-            <!-- Column to hold the user info -->
+            <!-- Column to hold the user dashboard info -->
             <div class="col-8">
-                
-                <!-- Carousel for liked and saved recipies -->
-                <div class="row" style="background-color: blueviolet">
-                    <h1>Liked & Saved</h1>
+                <!-- Card to display user's recent recipies -->
+                <div class="card">
+                    <div class="card-header">Recent Recipies</div>
+                    <div class="card-body">
+                        <h5 class="card-title"></h5>
+                        <!-- Column for recent recipies cards -->
+                        <div class="col-12">
+                            <div class="row">
+                                <!-- Card inside a card to display recent recipies -->
+                                <div class="col-sm-4">
+                                    <div class="card" style="width: 16rem;">
+                                        <img class="card-img-top" src="/assets/images/sushi.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                card's content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card inside a card to display recent recipies -->
+                                <div class="col-sm-4">
+                                    <div class="card" style="width: 16rem;">
+                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                card's content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card inside a card to display recent recipies -->
+                                <div class="col-sm-4">
+                                    <div class="card" style="width: 16rem;">
+                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
 
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
-                        </ol>
-
-                        <div class="carousel-inner">
-                            <div class="carousel-item active">
-                                <img class="d-block w-10" src=".../800x400?auto=yes&bg=777&fg=555&text=First slide" alt="First slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-10" src=".../800x400?auto=yes&bg=666&fg=444&text=Second slide" alt="Second slide">
-                            </div>
-                            <div class="carousel-item">
-                                <img class="d-block w-10" src=".../800x400?auto=yes&bg=555&fg=333&text=Third slide" alt="Third slide">
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                card's content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-
-                        <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="sr-only">Next</span>
-                        </a>
                     </div>
-
                 </div>
 
                 <!-- Card to display user's liked and saved recipies -->
                 <div class="card">
-                    <div class="card-header">
-                        Liked & Saved
-                    </div>
+                    <div class="card-header">Liked & Saved</div>
                     <div class="card-body">
                         <h5 class="card-title"></h5>
-                        
-                        <!-- Card inside a card to display liked and saved recipies -->
-                        <div class="card" style="width: 16rem;">
-                            <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-                            <div class="card-body">
-                                <h5 class="card-title">Card title</h5>
-                                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-                                <a href="#" class="btn btn-primary">Go somewhere</a>
-                            </div>
-            
-                            <!-- Row for card footer -->
-                            <div class="row" id="card_footer">
-                                <p2>Share:</p2>
-                                <!-- Social links -->
-                                <a href="https://twitter.com/" target="_blank" class="icon-twitter">
-                                <i class="fab fa-twitter"></i>
-                                <br>
-                                <a href="https://facebook.com" target="_blank" class="icon-facebook">
-                                <i class="fab fa-facebook"></i>
-                                <br>
-                                <a href="https://www.instagram.com/" target="_blank" class="icon-instagram">
-                                <i class="fab fa-instagram"></i>
-                                <br>
-                                <a href="https://www.pinterest.com/login/" target="_blank" class="icon-pinterest">
-                                <i class="fab fa-pinterest"></i>
-                                <br>
+                        <!-- Column for liked and saved cards -->
+                        <div class="col-12">
+                            <div class="row">
+                                <!-- Card inside a card to display liked and saved recipies -->
+                                <div class="col-sm-4">
+                                    <div class="card" style="width: 16rem;">
+                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                card's content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card inside a card to display liked and saved recipies -->
+                                <div class="col-sm-4">
+                                    <div class="card" style="width: 16rem;">
+                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                card's content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card inside a card to display liked and saved recipies -->
+                                <div class="col-sm-4">
+                                    <div class="card" style="width: 16rem;">
+                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Card title</h5>
+                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                                                card's content.</p>
+                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                </div>
-            </div>                    
-        </div>
 
-        
+                        <!-- Footer -->
+                        <div class="row">
+                            <nav class="navbar fixed-bottom navbar-light bg-light">
+                                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
+                            </nav>
+                        </div>
 
-        <br>
-        
-        <!-- Footer --> 
-        <div class="row">
-            <nav class="navbar fixed-bottom navbar-light bg-light">
-                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
-            </nav>
-        </div>
-           
-
-    <!-- Linking to jQuery and Javascript -->
-    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-    <script src="./assets/javascript/script.js"></script>
-    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>          
+                        <!-- Linking to jQuery and Javascript -->
+                        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+                        <script src="./assets/javascript/script.js"></script>
+                        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 </body>
+
 </html>

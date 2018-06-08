@@ -96,15 +96,11 @@ var config = {
     messagingSenderId: "695015832855"
 };
 firebase.initializeApp(config);
-
 var database = firebase.database();
-
-
-
-
-
 var recipesLikedRef = database.ref("recipe_likes")
 recipesLikedRef.on("child_added", function (snapshot) {
-
 }
-*/
+$("#btn_liked").on("click", function (event) {
+    var Recipe = $()
+    var saved_obj
+    } */
