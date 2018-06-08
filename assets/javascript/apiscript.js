@@ -47,6 +47,8 @@ $(document).on("click", "#searchBtn", function (event) {
         filterChoices += chips[i].firstChild.data + ",";
     }
 
+    console.log(filterChoices);
+
     var baseURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients";
     var queryURL = baseURL + "?fillIngredients=false&ingredients=" + filterChoices + "&limitLicense=false&number=6&ranking=1";
 
@@ -82,9 +84,9 @@ $(document).on("click", "#searchBtn", function (event) {
 
     });
 });
-    $(likeBtn).click(function () {
-        var imageUrl = $()
-});
+//     $(likeBtn).click(function () {
+//         var imageUrl = $()
+// });
 /*
 //--------------- API CALL------------------ //
 var config = {
