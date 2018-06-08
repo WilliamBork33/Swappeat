@@ -4,6 +4,10 @@
     font-family: gooper;
     src: url("../fonts/gooper/Gooper0.1-Regular.otf") format("opentype");
 }
+@font-face {
+    font-family: gooperthin;
+    src: url("../fonts/gooper/Gooper0.1-Thin.otf") format("opentype");
+}
 
 
 /* css of footer*/
@@ -35,4 +39,20 @@ body {
 #quick_start{
     margin-top: 20px;
     margin-left: 500px;
+}
+#recipesCont {
+    margin-top: 25px;
+    background-color: #FEFAE0;
+    padding-top: 15px;
+}
+
+#recipe_title {
+    color: #223843 ;
+    font-family: gooper;
+    font-size: 15px;
+    padding-top: 25px;
+    border-radius: 25px;
+    }
+.recipe_image {
+    margin-top: 8px;
 }
