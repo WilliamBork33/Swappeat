@@ -41,8 +41,10 @@ body {
 }
 #recipesCont {
     margin-top: 25px;
-    background-color: #FEFAE0;
+    background-color: rgb(250, 248, 233);
     padding-top: 15px;
+    border-radius: 25px;
+
 }
 
 #recipe_title {
@@ -50,8 +52,8 @@ body {
     font-family: gooper;
     font-size: 15px;
     padding-top: 25px;
-    border-radius: 25px;
     }
 .recipe_image {
     margin-top: 8px;
 }
+
