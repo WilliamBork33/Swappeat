@@ -14,7 +14,60 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-    <title>DASHBOARD</title>
+    <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+    <script>
+        // Initialize Firebase
+        var config = {
+            apiKey: "AIzaSyBmJcFcPiRh6XXHCMcGKdYR8QjAgOUYUJQ",
+            authDomain: "swappie-bf64e.firebaseapp.com",
+            databaseURL: "https://swappie-bf64e.firebaseio.com",
+            projectId: "swappie-bf64e",
+            storageBucket: "swappie-bf64e.appspot.com",
+            messagingSenderId: "695015832855"
+        };
+        firebase.initializeApp(config);
+    </script>
+    <script type="text/javascript">
+        initApp = function () {
+            firebase.auth().onAuthStateChanged(function (user) {
+                if (user) {
+                    // User is signed in.
+                    var displayName = user.displayName;
+                    var email = user.email;
+                    var emailVerified = user.emailVerified;
+                    var uid = user.uid;
+                    user.getIdToken().then(function (accessToken) {
+                        console.log("-- User Signed In --");
+                        console.log("Account Info");
+                        console.log({
+                            displayName: displayName,
+                            email: email,
+                            emailVerified: emailVerified,
+                            uid: uid,
+                            accessToken: accessToken,
+                            
+                        });
+
+                    });
+                } else {
+                    // User is signed out.
+                    console.log("-- User Signed Out --");
+                    window.location.href = 'login.html';
+                    //document.getElementById('sign-in-status').textContent = 'Signed out';
+                    //document.getElementById('sign-in').textContent = 'Sign in';
+                    //document.getElementById('account-details').textContent = 'null';
+                }
+            }, function (error) {
+                console.log(error);
+            });
+        };
+
+        window.addEventListener('load', function () {
+            initApp()
+        });
+    </script>
+    <title>Dashboard</title>
+ 
 </head>
 
 <body>
@@ -44,10 +97,10 @@
                             <a class="nav-link" href="dashboard.html">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html"> Log In </a>
+                            <a class="nav-link"> Log In </a>
                         </li>
                         <li class="nav-item">
-                             <a class="btn btn-primary" href="quick-start.html" role="button">Quickstart</a>
+                            <a class="btn btn-primary" href="quick-start.html" role="button">Quickstart</a>
                         </li>
                 </div>
 
@@ -66,42 +119,39 @@
                         <p class="card-text"></p>
 
 
-                <!--STARTS FILTER PAGE-->
-                <div class="container wrap_container">
-                    <div class="row">
-                        <div class="col l12 m12 s12">
-                            <div id="show_filterbtn"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l12 m12 s12" id="other_search_filter">
-                            <div class="chips">
-                                <input class="custom-class" id="otherChip">
+                        <div class="container wrap_container">
+                                <div class="row">
+                                    <div class="col l12 m12 s12">
+                                        <div id="show_filterbtn"></div>
+                                    </div>
+                                </div>
+                                <div class="row">
+                                    <div class="col l12 m12 s12" id="other_search_filter">
+                                        <div class="chips">
+                                            <input class="custom-class" id="otherChip">
+                                        </div>
+                                    </div>
+                                </div>
+                                    <div class="row">
+                                        <div class="col-3">
+                                            <button type="button" class="btn btn-info" id="searchBtn">Search</button>
+                                        </div>
+                                        <div class="col-3">
+                                            <button type="button" class="btn btn-info" id="clearBtn">Clear</button>
+                                        </div>
+                                    </div>
+                                <div class="row">
+                                    <div class="col l12 m12 s12 row" id="recipesCont"></div> 
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                        <div class="row">
-                            <div class="col-3">
-                                <button type="button" class="btn btn-info" id="searchBtn">Search</button>
+                                </div>
                             </div>
-                            <div class="col-3">
-                                <button type="button" class="btn btn-info" id="clearBtn">Clear</button>
-                            </div>
-                        </div>
-                    <div class="row">
-                        <div class="col l12 m12 s12 row" id="recipesCont"></div> 
-                    </div>
-                </div>
-                    </div>
-                </div>
+                            <!--STARTS RECEPIES LIKED PAGE-->
+                            <div class="row" id="liked_display"></div>
 
-                <!--STARTS RECEPIES LIKED PAGE-->
-                <div class="row" id="liked_display"></div>
-        
             </div>
 
 
-            
 
             <!-- Column to hold the user dashboard info -->
             <div class="col-8">
@@ -199,22 +249,20 @@
             </div>
         </div>
 
+        <!-- Footer -->
+        <div class="row">
+            <nav class="navbar fixed-bottom navbar-light bg-light">
+                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
+            </nav>
+        </div>
 
 
+    <!-- Linking to jQuery and Javascript -->
+    <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+    <script src="../assets/javascript/apiscript.js"></script>
 
 
-
-                        <!-- Footer -->
-                        <div class="row">
-                            <nav class="navbar fixed-bottom navbar-light bg-light">
-                                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
-                            </nav>
-                        </div>
-    </div>
-                        <!-- Linking to jQuery and Javascript -->
-                        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-                        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-                        <script src="../javascript/apiscript.js"></script>
-                        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 </body>
+
 </html>
