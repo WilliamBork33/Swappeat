@@ -16,53 +16,18 @@ var config = {
     messagingSenderId: "695015832855"
   };
 firebase.initializeApp(config);
-//------------ LOG IN ---------//
-// $("#login").on("click", function(){
-//     var uiConfig = {
-//         signInSuccessUrl: "https://williambork33.github.io/Swappeat/assets/html/dashboard.html",
-//         signInOptions: [
-//           // Leave the lines as is for the providers you want to offer your users.
-//           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
-//           firebase.auth.EmailAuthProvider.PROVIDER_ID
-//         ],
-//         // Terms of service url.
-//         tosUrl: "google.com"
-//       };
-//       // Initialize the FirebaseUI Widget using Firebase.
-//       var ui = new firebaseui.auth.AuthUI(firebase.auth());
-//       // The start method will wait until the DOM is loaded.
-//       ui.start('#login', uiConfig);
-//})
-
 
 
 
 var recipesLikedRef = firebase.database();
-$("#like_counts").on("click", function () {
+/*$("#like_counts").on("click", function () {
     var title = $("#recipe_title").val();
     var image = $("#recipe_imageid").val();
-});
+});*/
+
 recipesLikedRef.ref("/recipes_likes").on("child_added", function (childSnapshot, prevChildKey) {
-console.log(childSnapshot.val(),"0000000");
 });
 
-//------------- GIPHY API----------//
-        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=zGLen2Fv096H2KzvAZztfsz7XNVf3Plu&q=cooking&limit=1&offset=0&rating=Y&lang=en";
-
-        $.ajax({
-            url: queryURL,
-            method: "GET"
-        }).then(function (response) {
-            console.log(response);
-            var results = response.data;
-            $("#lets_giphy").on("click", function () {
-                var title = $("#recipe_title").val();
-                var image = $("#recipe_imageid").val();
-            });   
-
-            $("#giphy").append(recipeDiv);
-
-        });
 buttonsRender();
 //--------------- RENDER filterArray BTNS------------------ //
 function buttonsRender() {
@@ -89,8 +54,30 @@ $(".filter_render").on("click", function (event) {
 
 
 });
-
+function emptygiph(){
+    $("#giphy").css('visibility', 'hidden'); 
+    $("#giphy").empty();
+}
 function addLike(tag) {
+    var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=zGLen2Fv096H2KzvAZztfsz7XNVf3Plu&q=cooking&limit=25&offset=0&rating=Y&lang=en";
+    $.ajax({
+        url: queryURL,
+        method: "GET"
+    }).then(function (response) {
+        console.log(response);
+        var results = response.data; 
+        
+        var giphyCook = $("<img>");
+        giphyCook.attr("src", results[Math.floor(Math.random() * 25 )].images.fixed_height.url);
+        giphyCook.attr("onclick", "emptygiph()");
+
+        $("#giphy").append(giphyCook);
+        $("#giphy").css('visibility', 'visible');
+
+    });
+
+
+
     var newImage = {
         id:tag.id,
         likes: 0
@@ -98,19 +85,17 @@ function addLike(tag) {
 
     //aqui se agrega el like basado en el arreglo de los likes pero es basado en la sesion, 
     //falta saber como extraer los likes guardados en firebase buscandolos por id.
-    alert(likes[0].id);
+    
      for(var i=0; i<likes.length; i++){
 
             if(likes[i].id==tag.id){
-                alert(likes[i].id);
                 likes[i].likes=likes[i].likes+1;
                 
             }
     
         }
     recipesLikedRef.ref("/recipes_likes").push(likes);
-    alert(likes);
-
+   
   }
 //--------------chips -----------//
 $('.chips').chips();
@@ -160,15 +145,12 @@ $(document).on("click", "#searchBtn", function (event) {
             //like btn--------------//
             var likeBtn = $("<button>");
             likeBtn.text("Like <3");
-            likeBtn.addClass("btn btn-info col l2 m2 s2");
+            likeBtn.addClass("btn btn-info");
             likeBtn.attr("id", results[i].id);
             likeBtn.attr("onclick", "addLike(this)");
             recipeDiv.append(likeBtn);
-            var letsCook = $("<button>");
-            letsCook.text("Let´s cook!");
-            letsCook.addClass("btn btn-info col l2 m2 s2");
-            letsCook.attr("id", "lets_giphy");
-
+            //
+        
             
             
             $("#recipesCont").append(recipeDiv);
