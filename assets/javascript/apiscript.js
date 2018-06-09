@@ -5,6 +5,7 @@ var filterArray = ["Vegetables", "CEREAL", " Beef", "Fish", "Chicken", "Eggs", "
 var userChoices = [];
 var likes =  [];
 
+
 //--------------- FIREBASE------------------ //
 var config = {
     apiKey: "AIzaSyBmJcFcPiRh6XXHCMcGKdYR8QjAgOUYUJQ",
@@ -24,7 +25,23 @@ recipesLikedRef.ref("/recipes_likes").on("child_added", function (childSnapshot,
 console.log(childSnapshot.val(),"0000000");
 });
 
+//------------- GIPHY API----------//
+        var queryURL = "https://api.giphy.com/v1/gifs/search?api_key=zGLen2Fv096H2KzvAZztfsz7XNVf3Plu&q=cooking&limit=1&offset=0&rating=Y&lang=en";
 
+        $.ajax({
+            url: queryURL,
+            method: "GET"
+        }).then(function (response) {
+            console.log(response);
+            var results = response.data;
+            $("#lets_giphy").on("click", function () {
+                var title = $("#recipe_title").val();
+                var image = $("#recipe_imageid").val();
+            });   
+
+            $("#giphy").append(recipeDiv);
+
+        });
 buttonsRender();
 //--------------- RENDER filterArray BTNS------------------ //
 function buttonsRender() {
@@ -51,14 +68,6 @@ $(".filter_render").on("click", function (event) {
 
 
 });
-
-
-/*$("#like_counts").on("click", function (event) {
-    var recipes = $("#recipe_title").val();
-    var image = $("#recipe_imageid").val();
-  console.log("hello");
-  });
-*/
 
 function addLike(tag) {
     var newImage = {
@@ -89,6 +98,7 @@ $('.chips').chips();
 
 //--------------- API CALL------------------ //  
 $(document).on("click", "#searchBtn", function (event) {
+    $("#recipesCont").empty();
     var filterChoices = "";
     for (var i = 0; i < userChoices.length; i++) {
         filterChoices += userChoices[i] + ",";
@@ -98,12 +108,13 @@ $(document).on("click", "#searchBtn", function (event) {
     for (var i = 0; i < chips.length; i++) {
         filterChoices += chips[i].firstChild.data + ",";
     }
+    userChoices = [];
 
     console.log(filterChoices);
 
+//------------- SPOONACULAR API----------//
     var baseURL = "https://spoonacular-recipe-food-nutrition-v1.p.mashape.com/recipes/findByIngredients";
     var queryURL = baseURL + "?fillIngredients=false&ingredients=" + filterChoices + "&limitLicense=false&number=6&ranking=1";
-
 
     $.ajax({
         type: "GET",
@@ -128,11 +139,16 @@ $(document).on("click", "#searchBtn", function (event) {
             //like btn--------------//
             var likeBtn = $("<button>");
             likeBtn.text("Like <3");
-            likeBtn.addClass("btn btn-info");
+            likeBtn.addClass("btn btn-info col l2 m2 s2");
             likeBtn.attr("id", results[i].id);
             likeBtn.attr("onclick", "addLike(this)");
-            
             recipeDiv.append(likeBtn);
+            var letsCook = $("<button>");
+            letsCook.text("Let´s cook!");
+            letsCook.addClass("btn btn-info col l2 m2 s2");
+            letsCook.attr("id", "lets_giphy");
+
+            
             
             $("#recipesCont").append(recipeDiv);
 
@@ -151,3 +167,5 @@ $(document).on("click", "#searchBtn", function (event) {
 
     });
 });
+
+
