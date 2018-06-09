@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- Linking style sheets -->
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/reset.css" />
+    <link rel="stylesheet" type="text/css" media="screen" href="./assets/css/style.css" />
+    <!-- Compiled and minified materialized CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/css/materialize.min.css">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
+        crossorigin="anonymous">
+    <title>Login</title>
+</head>
+<body id="login-body">
+    
+    <!-- Responsive Content Container -->
+    <div class="container-fluid">
+        <!-- Header for navigation bar -->
+        <header>
+            <!-- Navigation bar -->
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="../../index.html">
+                    <img src="../images/Logo Swappeat.png" width="200px">
+                </a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
+                    aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="../../index.html">Home
+                                <span class="sr-only">(current)</span>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="dashboard.html">Dashboard</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href="login.html"> Log In </a>
+                        </li>
+                        <li class="nav-item">
+                                <a class="btn btn-primary" href="quick-start.html" role="button">Quickstart</a>
+                        </li>
+                </div>
+            </nav>
+        </header>
+
+        <div class="col-6"></div>
+        <div class="col-6">
+            <div id="popupbox"> 
+                <form name="login" action="" method="post">
+                <center>Username:</center>
+                <center><input name="username" size="10" /></center>
+                <center>Password:</center>
+                <center><input name="password" type="password" size="10" /></center>
+                <center><input type="submit" name="submit" value="login" /></center>
+                </form>
+                <br />
+                <center><a href="../../index.html">close</a></center> 
+            </div>
+        </div>
+        <div class="col-3"></div>
+    </div>
+    
+
+
+</body>
+
+ <!-- Linking to jQuery and Javascript -->
+ <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+ <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+ <script src="../javascript/script.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+
+</html>
