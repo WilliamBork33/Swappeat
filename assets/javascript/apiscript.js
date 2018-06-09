@@ -3,6 +3,27 @@ var userName = "";
 var userPassword = "";
 var filterArray = ["Vegetables", "CEREAL", " Beef", "Fish", "Chicken", "Eggs", "Tofu", "Seeds", "Legumes/Beans", "Milk", "Cheese"];
 var userChoices = [];
+var likes =  [];
+
+//--------------- FIREBASE------------------ //
+var config = {
+    apiKey: "AIzaSyBmJcFcPiRh6XXHCMcGKdYR8QjAgOUYUJQ",
+    authDomain: "swappie-bf64e.firebaseapp.com",
+    databaseURL: "https://swappie-bf64e.firebaseio.com",
+    projectId: "swappie-bf64e",
+    storageBucket: "swappie-bf64e.appspot.com",
+    messagingSenderId: "695015832855"
+  };
+firebase.initializeApp(config);
+var recipesLikedRef = firebase.database();
+$("#like_counts").on("click", function () {
+    var title = $("#recipe_title").val();
+    var image = $("#recipe_imageid").val();
+});
+recipesLikedRef.ref("/recipes_likes").on("child_added", function (childSnapshot, prevChildKey) {
+console.log(childSnapshot.val(),"0000000");
+});
+
 
 buttonsRender();
 //--------------- RENDER filterArray BTNS------------------ //
@@ -30,9 +51,40 @@ $(".filter_render").on("click", function (event) {
 
 
 });
+
+
+/*$("#like_counts").on("click", function (event) {
+    var recipes = $("#recipe_title").val();
+    var image = $("#recipe_imageid").val();
+  console.log("hello");
+  });
+*/
+
+function addLike(tag) {
+    var newImage = {
+        id:tag.id,
+        likes: 0
+    }
+
+    //aqui se agrega el like basado en el arreglo de los likes pero es basado en la sesion, 
+    //falta saber como extraer los likes guardados en firebase buscandolos por id.
+    alert(likes[0].id);
+     for(var i=0; i<likes.length; i++){
+
+            if(likes[i].id==tag.id){
+                alert(likes[i].id);
+                likes[i].likes=likes[i].likes+1;
+                
+            }
+    
+        }
+    recipesLikedRef.ref("/recipes_likes").push(likes);
+    alert(likes);
+
+  }
 //--------------chips -----------//
 $('.chips').chips();
-//---------------- cLEARS TEXT AND  --------------->
+//---------------- CLEARS TEXT AND  --------------->
 
 
 //--------------- API CALL------------------ //  
@@ -74,35 +126,28 @@ $(document).on("click", "#searchBtn", function (event) {
             recipeTitle.text(results[i].title);
             recipeDiv.append(recipeTitle);
             //like btn--------------//
-            likeBtn = $("<button>");
+            var likeBtn = $("<button>");
             likeBtn.text("Like <3");
             likeBtn.addClass("btn btn-info");
+            likeBtn.attr("id", results[i].id);
+            likeBtn.attr("onclick", "addLike(this)");
+            
             recipeDiv.append(likeBtn);
+            
             $("#recipesCont").append(recipeDiv);
 
+            var newImage  = {
+                id:  results[i].id,
+                title: results[i].title,
+                likes: 0
+            }
+
+            likes.push(newImage);
+           
+
         }
+        recipesLikedRef.ref("/recipes_likes").push(likes);
+       
 
     });
 });
-//     $(likeBtn).click(function () {
-//         var imageUrl = $()
-// });
-/*
-//--------------- API CALL------------------ //
-var config = {
-    apiKey: "AIzaSyBmJcFcPiRh6XXHCMcGKdYR8QjAgOUYUJQ",
-    authDomain: "swappie-bf64e.firebaseapp.com",
-    databaseURL: "https://swappie-bf64e.firebaseio.com",
-    projectId: "swappie-bf64e",
-    storageBucket: "swappie-bf64e.appspot.com",
-    messagingSenderId: "695015832855"
-};
-firebase.initializeApp(config);
-var database = firebase.database();
-var recipesLikedRef = database.ref("recipe_likes")
-recipesLikedRef.on("child_added", function (snapshot) {
-}
-$("#btn_liked").on("click", function (event) {
-    var Recipe = $()
-    var saved_obj
-    } */
