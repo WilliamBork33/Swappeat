@@ -13,9 +13,11 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
     <title>Login</title>
+   
 </head>
-<body id="login-body">
-    
+<body>
+
+
     <!-- Responsive Content Container -->
     <div class="container-fluid">
         <!-- Header for navigation bar -->
@@ -40,7 +42,7 @@
                             <a class="nav-link" href="dashboard.html">Dashboard</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html"> Log In </a>
+                            <a id="login" class="nav-link" href="login.html"> Log In </a>
                         </li>
                         <li class="nav-item">
                                 <a class="btn btn-primary" href="quick-start.html" role="button">Quickstart</a>
@@ -48,24 +50,7 @@
                 </div>
             </nav>
         </header>
-
-        <div class="col-6"></div>
-        <div class="col-6">
-            <div id="popupbox"> 
-                <form name="login" action="" method="post">
-                <center>Username:</center>
-                <center><input name="username" size="10" /></center>
-                <center>Password:</center>
-                <center><input name="password" type="password" size="10" /></center>
-                <center><input type="submit" name="submit" value="login" /></center>
-                </form>
-                <br />
-                <center><a href="../../index.html">close</a></center> 
-            </div>
-        </div>
-        <div class="col-3"></div>
-    </div>
-    
+        <div id="login-ui"></div>
 
 
 </body>
@@ -73,7 +58,35 @@
  <!-- Linking to jQuery and Javascript -->
  <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
  <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+ <script src="https://www.gstatic.com/firebasejs/5.0.4/firebase.js"></script>
+ <script src="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.js"></script>
+ <link type="text/css" rel="stylesheet" href="https://cdn.firebase.com/libs/firebaseui/3.0.0/firebaseui.css" />
  <script src="../javascript/script.js"></script>
- <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
-
+ <script>
+        // Initialize Firebase
+        var config = {
+               apiKey: "AIzaSyBmJcFcPiRh6XXHCMcGKdYR8QjAgOUYUJQ",
+       authDomain: "swappie-bf64e.firebaseapp.com",
+       databaseURL: "https://swappie-bf64e.firebaseio.com",
+       projectId: "swappie-bf64e",
+       storageBucket: "swappie-bf64e.appspot.com",
+       messagingSenderId: "695015832855"
+           };
+           firebase.initializeApp(config);
+       // FirebaseUI config.
+       var uiConfig = {
+           signInSuccessUrl: 'https://williambork33.github.io/Swappeat/assets/html/dashboard.html',
+           signInOptions: [
+             // Leave the lines as is for the providers you want to offer your users.
+             firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+             firebase.auth.EmailAuthProvider.PROVIDER_ID,
+           ],
+           // Terms of service url.
+           tosUrl: 'smbc-comics.com'
+         };
+         // Initialize the FirebaseUI Widget using Firebase.
+         var ui = new firebaseui.auth.AuthUI(firebase.auth());
+         // The start method will wait until the DOM is loaded.
+         ui.start('#login-ui', uiConfig);
+   </script>
 </html>

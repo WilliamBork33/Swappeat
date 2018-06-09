@@ -15,6 +15,27 @@ var config = {
     messagingSenderId: "695015832855"
   };
 firebase.initializeApp(config);
+//------------ LOG IN ---------//
+// $("#login").on("click", function(){
+//     var uiConfig = {
+//         signInSuccessUrl: "https://williambork33.github.io/Swappeat/assets/html/dashboard.html",
+//         signInOptions: [
+//           // Leave the lines as is for the providers you want to offer your users.
+//           firebase.auth.GoogleAuthProvider.PROVIDER_ID,
+//           firebase.auth.EmailAuthProvider.PROVIDER_ID
+//         ],
+//         // Terms of service url.
+//         tosUrl: "google.com"
+//       };
+//       // Initialize the FirebaseUI Widget using Firebase.
+//       var ui = new firebaseui.auth.AuthUI(firebase.auth());
+//       // The start method will wait until the DOM is loaded.
+//       ui.start('#login', uiConfig);
+//})
+
+
+
+
 var recipesLikedRef = firebase.database();
 $("#like_counts").on("click", function () {
     var title = $("#recipe_title").val();
