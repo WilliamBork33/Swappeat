@@ -14,7 +14,7 @@
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css" integrity="sha384-DNOHZ68U8hZfKXOrtjWvjxusGo9WQnrNx2sqG0tfsghAvtVlRW3tvkXWZh58N9jp"
         crossorigin="anonymous">
-    <title>Dashboard</title>
+    <title>DASHBOARD</title>
 </head>
 
 <body>
@@ -35,17 +35,21 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
 
                     <ul class="navbar-nav mr-auto">
+                        
                         <li class="nav-item active">
                             <a class="nav-link" href="../../index.html">Home
                                 <span class="sr-only">(current)</span>
                             </a>
                         </li>
+
                         <li class="nav-item">
                             <a class="nav-link" href="dashboard.html">Dashboard</a>
                         </li>
+
                         <li class="nav-item">
-                            <a class="nav-link" href="login.html"> Log In </a>
+                            <a class="nav-link"> Log In </a>
                         </li>
+
                         <li class="nav-item">
                              <a class="btn btn-primary" href="quick-start.html" role="button">Quickstart</a>
                         </li>
@@ -68,40 +72,32 @@
 
                 <!--STARTS FILTER PAGE-->
                 <div class="container wrap_container">
-                    <div class="row">
-                        <div class="col l12 m12 s12">
-                            <div id="show_filterbtn"></div>
-                        </div>
-                    </div>
-                    <div class="row">
-                        <div class="col l12 m12 s12" id="other_search_filter">
-                            <div class="chips">
-                                <input class="custom-class" id="otherChip">
-                            </div>
-                        </div>
-                    </div>
                         <div class="row">
-                            <div class="col-3">
-                                <button type="button" class="btn btn-info" id="searchBtn">Search</button>
-                            </div>
-                            <div class="col-3">
-                                <button type="button" class="btn btn-info" id="clearBtn">Clear</button>
+                            <div class="col l12 m12 s12">
+                                <div id="show_filterbtn"></div>
                             </div>
                         </div>
-                    <div class="row">
-                        <div class="col l12 m12 s12 row" id="recipesCont"></div> 
+                        <div class="row">
+                            <div class="col l12 m12 s12" id="other_search_filter">
+                                <div class="chips">
+                                    <input class="custom-class" id="otherChip">
+                                </div>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-info" id="searchBtn">Search</button>
+                                <button type="button" class="btn btn-info" id="clearBtn">clear</button>
+                            </div>
+                        <div class="row">
+                            <div class="col l12 m12 s12 row" id="recipesCont"></div> 
+                        </div>
                     </div>
-                </div>
-                    </div>
-                </div>
 
-                <!--STARTS RECEPIES LIKED PAGE-->
-                <div class="row" id="liked_display"></div>
-        
+
+                        
+                    </div>
+                </div>
             </div>
-
-
-            
 
             <!-- Column to hold the user dashboard info -->
             <div class="col-8">
@@ -199,23 +195,17 @@
             </div>
         </div>
 
-
-
-
-
-
-        <!-- Footer -->
-        <div class="row">
-            <nav class="navbar fixed-bottom navbar-light bg-light">
-                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
-            </nav>
-        </div>
+                        <!-- Footer -->
+                        <div class="row">
+                            <nav class="navbar fixed-bottom navbar-light bg-light">
+                                <a class="navbar-brand" href="#">2018 Swappeat!©</a>
+                            </nav>
+                        </div>
     </div>
-
-        <!-- Linking to jQuery and Javascript -->
-        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
-        <script src="../javascript/apiscript.js"></script>
-        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
+                        <!-- Linking to jQuery and Javascript -->
+                        <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
+                        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
+                        <script src="./assets/javascript/script.js"></script>
+                        <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 </body>
 </html>
