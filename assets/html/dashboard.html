@@ -18,13 +18,10 @@
 </head>
 
 <body>
-
     <!-- Responsive Content Container -->
     <div class="container-fluid">
-
         <!-- Header for navigation bar -->
         <header>
-
             <!-- Navigation bar -->
             <nav class="navbar navbar-expand-lg navbar-light bg-light">
                 <a class="navbar-brand" href="../../index.html">
@@ -56,20 +53,41 @@
 
         <!-- Row for filters and user info cards -->
         <div class="row">
-
             <!-- Column to hold the filters card -->
             <div class="col-4">
-
                 <!-- Card to display filters -->
                 <div class="card">
-                    <div class="card-header">
-                        Edit Filters
-                    </div>
+                    <div class="card-header">Recipe Filters</div>
                     <div class="card-body">
                         <h5 class="card-title">Change Applied Filters</h5>
                         <p class="card-text"></p>
-                        <!-- Button to submit info -->
-                        <button type="button" class="btn btn-info">Submit!</button>
+
+
+                <!--STARTS FILTER PAGE-->
+                <div class="container wrap_container">
+                        <div class="row">
+                            <div class="col l12 m12 s12">
+                                <div id="show_filterbtn"></div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col l12 m12 s12" id="other_search_filter">
+                                <div class="chips">
+                                    <input class="custom-class" id="otherChip">
+                                </div>
+                            </div>
+                        </div>
+                            <div class="row">
+                                <button type="button" class="btn btn-info" id="searchBtn">Search</button>
+                                <button type="button" class="btn btn-info" id="clearBtn">clear</button>
+                            </div>
+                        <div class="row">
+                            <div class="col l12 m12 s12 row" id="recipesCont"></div> 
+                        </div>
+                    </div>
+
+
+                        
                     </div>
                 </div>
             </div>
@@ -87,36 +105,33 @@
                                 <!-- Card inside a card to display recent recipies -->
                                 <div class="col-sm-4">
                                     <div class="card" style="width: 16rem;">
-                                        <img class="card-img-top" src="/assets/images/sushi.jpg" alt="Card image cap">
+                                        <img class="card-img-top" src="https://spoonacular.com/recipeImages/482392-312x231.jpg" alt="Card image cap">
                                         <div class="card-body">
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                                card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <h5 class="card-title">Lemon Chicken</h5>
+                                            <p class="card-text">Some good chicken and stuff. With lemons bro. Yum yum!</p>
+                                            <a href="#" class="btn btn-primary">View Recipe</a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <!-- Card inside a card to display liked and saved recipies -->
+                                <div class="col-sm-4">
+                                    <div class="card" style="width: 16rem;">
+                                        <img class="card-img-top" src="https://spoonacular.com/recipeImages/958363-312x231.jpg" alt="Card image cap">
+                                        <div class="card-body">
+                                            <h5 class="card-title">Sexy Food Time</h5>
+                                            <p class="card-text">This recipe makes all the boys come to the yard.</p>
+                                            <a href="#" class="btn btn-primary">View Recipe</a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Card inside a card to display recent recipies -->
                                 <div class="col-sm-4">
                                     <div class="card" style="width: 16rem;">
-                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <img class="card-img-top" src="https://spoonacular.com/recipeImages/983312-312x231.jpg" alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                                card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
-                                        </div>
-                                    </div>
-                                </div>
-                                <!-- Card inside a card to display recent recipies -->
-                                <div class="col-sm-4">
-                                    <div class="card" style="width: 16rem;">
-                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
-                                        <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                                card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <h5 class="card-title">中國食譜</h5>
+                                            <p class="card-text">很好吃. 我喜歡這個. Eat! Baby! Eat!</p>
+                                            <a href="#" class="btn btn-primary">View Recipe</a>
                                         </div>
                                     </div>
                                 </div>
@@ -136,43 +151,42 @@
                                 <!-- Card inside a card to display liked and saved recipies -->
                                 <div class="col-sm-4">
                                     <div class="card" style="width: 16rem;">
-                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <img class="card-img-top" src="https://spoonacular.com/recipeImages/49273-312x231.jpg" alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                                card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <h5 class="card-title">Great Food Recipe</h5>
+                                            <p class="card-text">This recipe is made of ingredients. Cook then eat it.</p>
+                                            <a href="#" class="btn btn-primary">View Recipe</a>
                                         </div>
                                     </div>
                                 </div>
                                 <!-- Card inside a card to display liked and saved recipies -->
                                 <div class="col-sm-4">
                                     <div class="card" style="width: 16rem;">
-                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <img class="card-img-top" src="https://spoonacular.com/recipeImages/991497-312x231.jpg" alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                                card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <h5 class="card-title">Eat Eat</h5>
+                                            <p class="card-text">If you are cool you cook this. So eat it.</p>
+                                            <a href="#" class="btn btn-primary">View Recipe</a>
                                         </div>
                                     </div>
                                 </div>
-                                <!-- Card inside a card to display liked and saved recipies -->
+                                <!-- Card inside a card to display recent recipies -->
                                 <div class="col-sm-4">
                                     <div class="card" style="width: 16rem;">
-                                        <img class="card-img-top" src=".../100px180/" alt="Card image cap">
+                                        <img class="card-img-top" src="https://spoonacular.com/recipeImages/848980-312x231.jpg" alt="Card image cap">
                                         <div class="card-body">
-                                            <h5 class="card-title">Card title</h5>
-                                            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                                                card's content.</p>
-                                            <a href="#" class="btn btn-primary">Go somewhere</a>
+                                            <h5 class="card-title">Yumm Food</h5>
+                                            <p class="card-text">This is good too. Nom nom nom nom...om</p>
+                                            <a href="#" class="btn btn-primary">View Recipe</a>
                                         </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
+                    </div>
+                </div>
+            </div>
+        </div>
 
                         <!-- Footer -->
                         <div class="row">
@@ -180,12 +194,11 @@
                                 <a class="navbar-brand" href="#">2018 Swappeat!©</a>
                             </nav>
                         </div>
-
+    </div>
                         <!-- Linking to jQuery and Javascript -->
                         <script src="https://code.jquery.com/jquery-3.3.1.js" integrity="sha256-2Kok7MbOyxpgUVvAk/HJ2jigOSYS2auK4Pfzbm7uH60=" crossorigin="anonymous"></script>
                         <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
                         <script src="./assets/javascript/script.js"></script>
                         <script src="https://www.gstatic.com/firebasejs/4.12.0/firebase.js"></script>
 </body>
-
 </html>
