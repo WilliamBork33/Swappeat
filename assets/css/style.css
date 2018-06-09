@@ -10,7 +10,7 @@
 
 
 /* css of footer*/
-body {
+body, #body-login {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
@@ -113,3 +113,19 @@ body {
     text-align:center;
     font-weight:bold;
 }
+
+#popupbox{
+    margin: 0; 
+    margin-left: 40%; 
+    margin-right: 40%;
+    margin-top: 50px; 
+    padding-top: 10px; 
+    width: 20%; 
+    height: 150px; 
+    position: absolute; 
+    background: #FBFBF0; 
+    border: solid #000000 2px; 
+    z-index: 9; 
+    font-family: arial; 
+    visibility: hidden; 
+    }
